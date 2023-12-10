@@ -11,15 +11,15 @@ class Trie
 public:
 
     Trie(const string& filepath);
-    ~Trie();
+    virtual ~Trie(); //
     TrieElement* p_root = new TrieElement(char(NULL));
 
 private:
 
     string search(const string& word);
     string searchHelper(const string& word, TrieElement* c, int index);
-    void printAllWords();
-    void printHelper(TrieElement* c);
+    void printAllWords() const; // const here is not critical, but respectable :)
+    void printHelper(const TrieElement* c) const;
     void insert(const string& elem, TrieElement* c, int elemIndex);
     string cleanse(const string& word);
     

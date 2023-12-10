@@ -13,6 +13,25 @@ int main()
     bb.printBoard();
     bb.solve();
 
-    cout<<"exited";
+/*
+from https://google.github.io/styleguide/cppguide.html:
+// Assignment operators always have spaces around them.
+x = 0;
+
+// Other binary operators usually have spaces around them, but it's
+// OK to remove spaces around factors.  Parentheses should have no
+// internal padding.
+v = w * x + y / z;
+v = w*x + y/z;
+v = w * (x + z);
+
+// No spaces separating unary operators and their arguments.
+x = -5;
+++x;
+if (x && !y)
+  ...
+  */
+
+    cout << "exited"; // also spaces are added before and after <<. It does help readability, but not a big deal.
     return 0;
 }

@@ -10,6 +10,7 @@ public:
     TrieElement(char letter);
     ~TrieElement();
     
+    // can we add private here?
     char c;
     string wordSoFar;
     bool isCompletedWord = false;
