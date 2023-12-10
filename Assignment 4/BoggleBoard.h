@@ -12,6 +12,7 @@ using namespace std;
 class BoggleBoard
 {
 public:
+    const int c_boardDim = 5;
 
     struct Die
     {
@@ -25,21 +26,21 @@ public:
     void printBoard();
     void solve();
     
-    private:
-    Die* board[5][5];
+private:
+    Die* board[c_boardDim][c_boardDim];
     Trie words;
     vector < unordered_set < string > > foundWords;
     
     void solveHelper(Die* d, TrieElement* c, unordered_set < Die* > travelled);
-    TrieElement* traverse(Die* d, TrieElement* c);
+    TrieElement* traverse(const Die* d, const TrieElement* c);
     void printWords();
 
-    Die* west(Die* d);
-    Die* southWest(Die* d);
-    Die* south(Die* d);
-    Die* southEast(Die* d);
-    Die* east(Die* d);
-    Die* northEast(Die* d);
-    Die* north(Die* d);
-    Die* northWest(Die* d);
+    Die* west(const Die* d);
+    Die* southWest(const Die* d);
+    Die* south(const Die* d);
+    Die* southEast(const Die* d);
+    Die* east(const Die* d);
+    Die* northEast(const Die* d);
+    Die* north(const Die* d);
+    Die* northWest(cosnt Die* d);
 };

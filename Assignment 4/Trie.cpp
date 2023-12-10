@@ -25,25 +25,33 @@ Trie::~Trie()
 //--
 void Trie::insert(const string& elem, TrieElement* c, int elemIndex)
 {
+    assert(c && "invalid input argument");
+
     if (elemIndex <= elem.length() - 1)
     {
         if (!c->subTries[int(elem[elemIndex]) - 97])
         {
             TrieElement* temp = new TrieElement(elem[elemIndex]);
+            assert(temp);
             temp->wordSoFar = c->wordSoFar + elem[elemIndex];
             c->subTries[int(elem[elemIndex]) - 97] = temp;
             c = temp;
+
+            // spaces are good to separate different code chunks, kind of like paragraphs in a book
             if(elemIndex == elem.length() - 1)
             {
                 c->isCompletedWord = true;
             }
+
             insert(elem, c, ++elemIndex);
+            
             return;
         }
         else
         {
             c = c->subTries[int(elem[elemIndex]) - 97];
             insert(elem, c, ++elemIndex);
+
             return;
         }
     }
@@ -61,11 +69,11 @@ string Trie::searchHelper(const string& word, TrieElement* c, int index)
     {
         if (c->isCompletedWord)
         {
-            return "FOUND";
+            return "FOUND"; // if you use strings somewhere else, it's important those are macros or constants.
         }
         return "PARTIAL";
     }
-    if (index <= word.length() - 1)
+    if (index < word.length()) // not really wrong, but it's just more typical to see it this way
     {
         if (c->subTries[int(word[index]) - 97])
         {
